@@ -5,36 +5,37 @@
 
     方法一：margin:0 auto; （最常用的居中布局方式）
     方法二：text-align和inline-block的结合（设置父元素的text-align为center）。
-     这种方式最好应用于图片、按钮、文字之类的居中模式，否则就需要借助inline-block来进行居中布局。
-方法三：position绝对定位来实现居中布局。
-适用于块级元素不给出宽高的情况下(需要借助transtrom的tanslateX方法)。
-#parent{    position: relative;
-}#child{    position: absolute;    top: 0;    left: 50%;    transform: translateX(-50%);
-}
-方法四：利用flex弹性布局的一个属性。
-子元素宽度已知的情况下
-#parent{    display: flex;    justify-content: center;
-}
-其他还有很多方法，一般用的不太多。并且各种方法优缺点不一样，可选择性使用。
-2. 水平居中及垂直居中
+    这种方式最好应用于图片、按钮、文字之类的居中模式，否则就需要借助inline-block来进行居中布局。
+    方法三：position绝对定位来实现居中布局。
+    适用于块级元素不给出宽高的情况下(需要借助transtrom的tanslateX方法)。
+    #parent{    position: relative;
+    }#child{    position: absolute;    top: 0;    left: 50%;    transform: translateX(-50%);
+    }
+    方法四：利用flex弹性布局的一个属性。
+    子元素宽度已知的情况下
+    #parent{    display: flex;    justify-content: center;
+    }
+    其他还有很多方法，一般用的不太多。并且各种方法优缺点不一样，可选择性使用。
+   
+    2. 水平居中及垂直居中
 
-方法一：先说一种神奇的方式吧
-子元素 div 绝对定位
-父元素需要被定位
-子元素 top、bottom、left、right 四个位置值均为 0
-子元素 margin: auto;
-下面代码是可以实现的，但还有点问题，大家帮看看~
+    方法一：先说一种神奇的方式吧
+    子元素 div 绝对定位
+    父元素需要被定位
+    子元素 top、bottom、left、right 四个位置值均为 0
+    子元素 margin: auto;
+    下面代码是可以实现的，但还有点问题，大家帮看看~
 
-#parent{    width: 100%;    height:100%;    position: fixed;
-}#child{    width: 400px;    height: 200px;    position: absolute;    top: 0;    bottom: 0;    left: 0;    right: 0;    margin: auto;    background-color: #ccc;
-}
-方式二：利用position的绝对定位及负边框来实现。
- #parent{    position: fixed;    width: 100%;    height: 100%;
-}#child{    position: absolute;    left: 50%;    top: 50%;    width: 400px;    height: 200px;    margin-top: -100px;    margin-left: -200px;    background-color: #ccc;
-}
-对于未给出宽高的元素，又需要请transform登场了，同时需要做好各浏览器的兼容。对于我这种懒癌患者，就不给出兼容代码嘞~
+    #parent{    width: 100%;    height:100%;    position: fixed;
+    }#child{    width: 400px;    height: 200px;    position: absolute;    top: 0;    bottom: 0;    left: 0;    right: 0;         margin: auto;    background-color: #ccc;
+    }
+    方式二：利用position的绝对定位及负边框来实现。
+     #parent{    position: fixed;    width: 100%;    height: 100%;
+     }#child{    position: absolute;    left: 50%;    top: 50%;    width: 400px;    height: 200px;    margin-top: -100px;      margin-left: -200px;    background-color: #ccc;
+     }
+     对于未给出宽高的元素，又需要请transform登场了，同时需要做好各浏览器的兼容。对于我这种懒癌患者，就不给出兼容代码嘞~
 
-3. 左边固定右边自适应的两列布局
+    3. 左边固定右边自适应的两列布局
 
 我猜吧，大家对这种布局方式最熟悉不过了，平时用的也会比较多，所以呢，你们写的应该都会比我的好~
 
@@ -78,7 +79,8 @@
 }#right{    flex: 1;
 }
 其他的吧，我暂时还没用到也没写到~网上一搜会有好多好多精讲的。
-4. 左边自适应右边固定
+          
+    4. 左边自适应右边固定
 
 话说其实我就只写了一种方法，我都有点不好意思放上来了，不管了，小花的脸皮比较厚，不怕！
 
@@ -90,9 +92,10 @@
     right:0; 
     top:0;    width: 200px;
 }
-5. 两边固定中间自适应的三列布局
 
-其实这个布局用的也挺多的啊哈，嗯，昨天写的作业就是这个！
+    5. 两边固定中间自适应的三列布局
+
+
 
 方式一：纯float方式
 注意：
@@ -112,7 +115,8 @@
 }.right{    position: absolute;    top: 0;    right: 0;    width: 100px;    height: 100px;
 }.middle{    margin:0 120px 0 220px;
 }
-方式三：flex的弹性布局
+    
+    方式三：flex的弹性布局
 不得不说的是其实很多布局都可以用flex来实现(简单粗暴嘿嘿)，但是flex的兼容性不是很好，并且还有别问题，所以保险起见还是选择常用的，这里简单介绍下。
 
 .parent{    display: flex;
@@ -120,9 +124,9 @@
 }.right{    width: 100px;    height: 100px;
 }.middle{    flex: 1;    margin:0 20px; 
 }
-方式四：最后的双翼布局和圣杯布局闪亮登场了
-要注意的是这种布局方式需要将主栏优先渲染，然后再加上两边的翅膀，即双翼，不过话又说话来，虽然是按照这个套路写的，但也不确定自己写的就是双翼布局。
-为了不误人子弟，在这先说明只是参考参考哟（欢迎大佬纠正）~
+   
+    方式四：最后的双翼布局和圣杯布局闪亮登场了
+
 
 第一步，先将主栏左浮动，并设宽度为100%，即铺满父元素
 第二步，将左栏左浮动，并设左外边距为-100%
@@ -141,12 +145,12 @@
       </div>
      <footer>...</footer>
     </body>
-CSS部分：
-.HolyGrail {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
+      CSS部分：
+    .HolyGrail {
+     display: flex;
+    min-height: 100vh;
+     flex-direction: column;
+     }
 
 header,
 footer {
@@ -167,20 +171,21 @@ footer {
   flex: 0 0 12em;
 }
 
-.HolyGrail-nav {
-  /* 导航放到最左边 */
-  order: -1;
-}
-如果是小屏幕，躯干的三栏自动变为垂直叠加。
+     .HolyGrail-nav {
+     /* 导航放到最左边 */
+     order: -1;
+     }
+         
+         如果是小屏幕，躯干的三栏自动变为垂直叠加。
 
-@media (max-width: 768px) {
-  .HolyGrail-body {
+     @media (max-width: 768px) {
+     .HolyGrail-body {
     flex-direction: column;
     flex: 1;
-  }
-  .HolyGrail-nav,
-  .HolyGrail-ads,
-  .HolyGrail-content {
-    flex: auto;
-  }
-}
+     }
+     .HolyGrail-nav,
+    .HolyGrail-ads,
+    .HolyGrail-content {
+      flex: auto;
+    }
+   }
