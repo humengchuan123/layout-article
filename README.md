@@ -1,11 +1,11 @@
 # layout-article
 前端布局篇，上述内容如有错误，请各位看官斧正！
 
-1. 水平居中
+     1. 水平居中
 
-方法一：margin:0 auto; （最常用的居中布局方式）
-方法二：text-align和inline-block的结合（设置父元素的text-align为center）。
-这种方式最好应用于图片、按钮、文字之类的居中模式，否则就需要借助inline-block来进行居中布局。
+    方法一：margin:0 auto; （最常用的居中布局方式）
+    方法二：text-align和inline-block的结合（设置父元素的text-align为center）。
+     这种方式最好应用于图片、按钮、文字之类的居中模式，否则就需要借助inline-block来进行居中布局。
 方法三：position绝对定位来实现居中布局。
 适用于块级元素不给出宽高的情况下(需要借助transtrom的tanslateX方法)。
 #parent{    position: relative;
@@ -130,17 +130,17 @@
 第四步，设置主栏，嘿嘿，这时候不管你使用什么方法都达不到效果，解决办法就是给主栏的内容加一个包裹层，并设左右外边距为左右两侧的宽度。
 
 
-圣杯布局（Holy Grail Layout）
-HTML部分
-<body class="HolyGrail">
-  <header>...</header>
-  <div class="HolyGrail-body">
-    <main class="HolyGrail-content">...</main>
-    <nav class="HolyGrail-nav">...</nav>
-    <aside class="HolyGrail-ads">...</aside>
-  </div>
-  <footer>...</footer>
-</body>
+     圣杯布局（Holy Grail Layout）
+     HTML部分
+     <body class="HolyGrail">
+     <header>...</header>
+     <div class="HolyGrail-body">
+       <main class="HolyGrail-content">...</main>
+        <nav class="HolyGrail-nav">...</nav>
+         <aside class="HolyGrail-ads">...</aside>
+      </div>
+     <footer>...</footer>
+    </body>
 CSS部分：
 .HolyGrail {
   display: flex;
